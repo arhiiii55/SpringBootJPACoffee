@@ -1,5 +1,6 @@
 package com.example.CoffeeSpringBoot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,23 +28,33 @@ public class Bill implements Serializable {
     @Column(name = "total")
     private int total;
 
-    @Column(name = "payment")
-    private int idPayment;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "payment")
+    private Payment idPayment;
 
-    @Column(name = "bill_status")
-    private int idStatus;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "bill_status" )
+    private Status idStatus;
 
     @Column(name = "create_date")
     private Date createDate;
 
-    @Column(name = "cart_id")
-    private int idCart;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart idCart;
 
-    @Column(name = "employee_id")
-    private int user;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private User employeeId;
 
-    @Column(name = "sale_code_id")
-    private int saleCode;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "sale_code_id")
+    private SaleCode saleCode;
 
     @Column(name = "note")
     private String note;

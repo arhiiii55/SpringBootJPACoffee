@@ -1,4 +1,5 @@
 package com.example.CoffeeSpringBoot.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,6 +26,7 @@ public class Role implements Serializable {
     @Column(name = "role_name")
     private String roleName;
 
-    @OneToOne(mappedBy = "role" ,cascade = CascadeType.ALL, orphanRemoval = true)
-    private User user;
+    @JsonIgnore
+    @OneToMany(mappedBy = "idRole")
+    private Set<User> user;
 }

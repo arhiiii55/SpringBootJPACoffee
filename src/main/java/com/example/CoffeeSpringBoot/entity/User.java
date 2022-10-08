@@ -1,14 +1,13 @@
 package com.example.CoffeeSpringBoot.entity;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Date;
+import java.util.Set;
 
 /**
  * @noinspection JpaAttributeTypeInspection
@@ -21,7 +20,7 @@ import java.util.*;
 @Entity
 @ToString
 @Table(name = "user")
-public class User implements Serializable{
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
@@ -46,8 +45,9 @@ public class User implements Serializable{
     @Column(name = "address")
     private String address;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "role", referencedColumnName = "id_role")
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "role", nullable = false)
     private Role idRole;
 
     @Column(name = "actived")
@@ -56,6 +56,15 @@ public class User implements Serializable{
     @Column(name = "create_date")
     private Date createDate;
 
-//    @OneToOne(mappedBy = "cart")
-//    private Cart cart;
+    @JsonIgnore
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Cart cart;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "employeeId")
+    private Set<Bill> bills ;
 }
+
+
+

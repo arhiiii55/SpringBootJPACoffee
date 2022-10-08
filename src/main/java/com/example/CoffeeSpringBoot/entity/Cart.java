@@ -1,5 +1,6 @@
 package com.example.CoffeeSpringBoot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,8 +24,15 @@ public class Cart implements Serializable {
     @Column(name = "id_cart")
     private int id;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user_id" , referencedColumnName = "id_user")
-    @Column(name = "user_id")
-    private int user;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id_user")
+    private User user;
+
+    @OneToMany(mappedBy = "cart")
+    private Set<ProductsInCart> productsInCarts;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "idCart")
+    private Set<Bill> bills;
+
 }

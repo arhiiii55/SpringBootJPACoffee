@@ -1,5 +1,6 @@
 package com.example.CoffeeSpringBoot.controller;
 
+import com.example.CoffeeSpringBoot.entity.Role;
 import com.example.CoffeeSpringBoot.entity.User;
 import com.example.CoffeeSpringBoot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +57,10 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.OK).body(users);
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ID user not the same!");
+    }
+    @GetMapping("/Role")
+    public ResponseEntity<?> getRole() {
+        List<Role> roles = userService.getRole();
+        return ResponseEntity.ok(roles);
     }
 }

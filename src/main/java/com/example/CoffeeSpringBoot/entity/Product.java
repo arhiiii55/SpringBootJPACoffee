@@ -1,4 +1,5 @@
 package com.example.CoffeeSpringBoot.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -19,12 +21,16 @@ import java.util.Date;
 public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_product")
     private int id;
+
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "type")
-    private int typeProduct;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "type" ,nullable=false)
+    private TypeProduct typeProduct;
 
     @Column(name = "sale")
     private int sale;
@@ -43,4 +49,9 @@ public class Product implements Serializable {
 
     @Column(name = "price")
     private int price;
+    // khoa
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private Set<ProductsInCart> productsInCart ;
 }
