@@ -63,26 +63,7 @@ public class UserServiceImpl implements UserService {
     public User getUserByIdDTO(int id) {
         return userRepository.findById(id).stream().findFirst().orElse(null);
     }
-    @Override
-    public User deleteBookById(int id) {
 
-        return null;
-    }
-
-    @Override
-    public List<User> deleteUserById1DTO(int id) {
-        return null;
-    }
-
-    @Override
-    public List<User> createUserDTO(User user) {
-        return null;
-    }
-
-    @Override
-    public User updateBook(int id, User user) {
-        return null;
-    }
     @Override
     public List<Role> getRole() {
 

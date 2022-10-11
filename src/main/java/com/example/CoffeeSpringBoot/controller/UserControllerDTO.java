@@ -5,7 +5,6 @@ import com.example.CoffeeSpringBoot.dto.UserDTO;
 import com.example.CoffeeSpringBoot.entity.Role;
 import com.example.CoffeeSpringBoot.entity.User;
 import com.example.CoffeeSpringBoot.service.UserService;
-import com.example.CoffeeSpringBoot.service.impl.UserServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,7 @@ import java.util.List;
 public class UserControllerDTO {
 
     @Autowired
-    private UserService userService ;
+    private UserService userService;
 
     @Autowired
     private ModelMapper modelMapper;

@@ -22,10 +22,6 @@ public interface UserService {
 
     List<User> getAllUserDTO();
     User getUserByIdDTO(int id);
-    User deleteBookById(int id);
-    List<User> deleteUserById1DTO(int id);
-    List<User> createUserDTO(User user);
-    User updateBook(int id, User user);
     List<Role> getRole();
     Role getRoleById(int id);
 

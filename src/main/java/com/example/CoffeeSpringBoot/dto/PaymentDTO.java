@@ -1,25 +1,23 @@
-package com.example.CoffeeSpringBoot.entity;
+package com.example.CoffeeSpringBoot.dto;
 
+import com.example.CoffeeSpringBoot.entity.Bill;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-@Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Status implements Serializable {
+@AllArgsConstructor
+@Setter
+@Getter
+public class PaymentDTO implements Serializable {
 
     private int id;
-
-    private String statusType;
-
+    private String paymentType;
 
 }
