@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductInBillRepo extends JpaRepository<ProductInBill, Integer> {
+public interface ProductInBillRepo
+// extends JpaRepository<ProductInBill, Integer>
+{
 }

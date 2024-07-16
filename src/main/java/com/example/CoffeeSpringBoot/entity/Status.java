@@ -1,15 +1,15 @@
 package com.example.CoffeeSpringBoot.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -17,9 +17,16 @@ import java.util.Set;
 @NoArgsConstructor
 public class Status implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_status")
     private int id;
 
+    @Column(name = "status_type")
     private String statusType;
 
+    @JsonIgnore
+    @ManyToOne()
+    private Bill Bill;
 
 }

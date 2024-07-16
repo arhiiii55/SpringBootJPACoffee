@@ -16,7 +16,6 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
 @Entity
 @ToString
 @Table(name = "user")
@@ -57,14 +56,10 @@ public class User implements Serializable {
     private Date createDate;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private Cart cart;
 
     @JsonIgnore
     @OneToMany(mappedBy = "employeeId")
-    private Set<Bill> bills ;
+    private Set<Bill> bills;
 }
-
-
-
