@@ -13,6 +13,7 @@ public class TestRole {
     private CartRepo cartRepo;
 
     public List<Cart> getCart(){
+        // System.out.println(ProductServiceImpl.count);
         return cartRepo.findAll();
     }
 }

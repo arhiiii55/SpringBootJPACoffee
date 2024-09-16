@@ -13,7 +13,6 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Component
 @Table(name = "payment")
 public class Payment implements Serializable {
     @Id

@@ -1,6 +1,5 @@
 package com.example.CoffeeSpringBoot.dto;
 
-import com.example.CoffeeSpringBoot.entity.TypeProduct;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +14,7 @@ import java.util.Date;
 @Getter
 public class ProductDTO implements Serializable {
     private int id;
+    
     private String productName;
 
     private TypeProductDTO typeProductDTO;

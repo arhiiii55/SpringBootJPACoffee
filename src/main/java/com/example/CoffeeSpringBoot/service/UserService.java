@@ -4,7 +4,6 @@ import com.example.CoffeeSpringBoot.entity.Role;
 import com.example.CoffeeSpringBoot.entity.User;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

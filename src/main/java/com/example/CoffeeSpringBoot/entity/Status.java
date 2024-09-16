@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
+import java.util.Set;
 
 @Getter
 @Setter
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class Status implements Serializable {
@@ -26,7 +26,7 @@ public class Status implements Serializable {
     private String statusType;
 
     @JsonIgnore
-    @ManyToOne()
-    private Bill Bill;
-
+    @OneToMany(mappedBy = "idStatus", cascade = CascadeType.ALL)
+    private Set<Bill> bills;
+    
 }

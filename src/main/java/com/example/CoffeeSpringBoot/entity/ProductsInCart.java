@@ -14,7 +14,6 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
 @Table(name = "productsincart")
 @Entity
 public class ProductsInCart implements Serializable {

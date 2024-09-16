@@ -27,10 +27,6 @@ public class TestController {
 
     @PostMapping("/userView")
     public ResponseEntity<?> createUser(@RequestBody Test user) {
-//        User user = new User();
-//        user.setUserName("Tai");
-//        user.setEmail("phamanhanh");
-//        user.setPhone("00886");
         List<Test> users = testService.createUser(user);
         return ResponseEntity.ok(users);
     }

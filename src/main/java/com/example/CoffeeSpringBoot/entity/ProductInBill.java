@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +13,6 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
 @Entity
 @Table(name = "productsinbill")
 public class ProductInBill implements Serializable {
@@ -36,6 +34,7 @@ public class ProductInBill implements Serializable {
 
     @Column(name = "sale")
     private int sale;
+
     @Column(name = "quantity")
     private int quantity;
 }
